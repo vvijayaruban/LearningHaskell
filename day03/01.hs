@@ -1,9 +1,12 @@
 aToZ = ['a','b' .. 'z'] ++ ['a'] ++ ['A','B' .. 'Z'] ++ ['A']
 
-getIndexWithStart char (x:xs) start
-        | x == char = start
-        | start >= length(aToZ) = (-1)
-        | otherwise = getIndexWithStart char xs (start + 1)
+getIndexWithStart char (x:xs) start =
+        if x == char 
+        then start
+        else
+            if start == 54
+            then (-1)
+            else getIndexWithStart char xs (start + 1)
 
 getIndex char = getIndexWithStart char aToZ 0
 
