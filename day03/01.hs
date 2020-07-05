@@ -26,7 +26,9 @@ getIndex char = getIndexWithStart char aToZ 0
 
 getCharToIndex index = head $ drop index aToZ
 
-encrypt char = getCharToIndex $ (getIndex char) + 1
+encrypt char = case (getIndex char) of
+    (-1) -> char
+    x    -> (getCharToIndex ( x + 1 ))
 
 main = interact (map encrypt)
 
